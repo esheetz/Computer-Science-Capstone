@@ -1,4 +1,5 @@
 # FUNCTIONS FOR TEXT PREPROCESSING
+# COMPUTER SCIENCE CAPSTONE
 
 # gets the text out of a .txt file into a string
 # input: file_name, the full path name of the file to be read
@@ -16,6 +17,10 @@ def get_text(file_name):
 def remove_extra_space(str):
     # length of string
     length = len(str)
+    
+    # if string is empty, no white space needs to be removed
+    if length == 0:
+        return str
     
     # initialize processed string, will accumulate processed characters
     str_prep = str[0]
@@ -75,11 +80,11 @@ def text_prep(str):
     str_prep = remove_extra_space(str_prep)
     
     # catch common errors
-    str_prep = str_prep.replace("Mr.\n", "Mr. ")
-    str_prep = str_prep.replace("Ms.\n", "Ms. ")
-    str_prep = str_prep.replace("Mrs.\n", "Mrs. ")
-    str_prep = str_prep.replace("Dr.\n", "Dr. ")
-            
+    str_prep = str_prep.replace(" Mr.\n", " Mr. ")
+    str_prep = str_prep.replace(" Ms.\n", " Ms. ")
+    str_prep = str_prep.replace(" Mrs.\n", " Mrs. ")
+    str_prep = str_prep.replace(" Dr.\n", " Dr. ")
+    
     # return output
     return str_prep
 
