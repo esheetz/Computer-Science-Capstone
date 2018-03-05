@@ -75,15 +75,27 @@ def text_prep(str):
         # if newline, add a space
         if str[i] == "\n":
             str_prep = str_prep + " "
-            
-    # remove extra spaces after newlines
-    str_prep = remove_extra_space(str_prep)
     
     # catch common errors
+    # incorrectly finding ends of sentences
     str_prep = str_prep.replace(" Mr.\n", " Mr. ")
     str_prep = str_prep.replace(" Ms.\n", " Ms. ")
     str_prep = str_prep.replace(" Mrs.\n", " Mrs. ")
     str_prep = str_prep.replace(" Dr.\n", " Dr. ")
+    str_prep = str_prep.replace(" Jr.\n", " Jr. ")
+    str_prep = str_prep.replace(" St.\n", " St. ")
+    # formatting dialogue
+    str_prep = str_prep.replace(".\n\" ", ".\"\n")
+    str_prep = str_prep.replace("!\n\" ", "!\"\n")
+    str_prep = str_prep.replace("?\n\" ", "?\"\n")
+    str_prep = str_prep.replace(".\n\' ", ".\'\n")
+    str_prep = str_prep.replace("!\n\' ", "!\'\n")
+    str_prep = str_prep.replace("?\n\' ", "?\'\n")
+    # replacing multiple spaces with one
+    str_prep = str_prep.replace("  ", " ")
+    
+    # remove extra spaces after newlines
+    str_prep = remove_extra_space(str_prep)
     
     # return output
     return str_prep
@@ -92,12 +104,15 @@ def text_prep(str):
 
 #test_str1 = "Hello world. I am trying to test something.\nI\'m very proud. Here we go >>><<<!!#$!"
 #test_str2 = "~`@#$%^&*()_-+={}[]|\<>/"
+#test_str3 = "I said, \"I am trying something intereseting.\" Hello. \"If only.\" "
 #
 #test_str1_prep = text_prep(test_str1)
 #test_str2_prep = text_prep(test_str2)
+#test_str3_prep = text_prep(test_str3)
 #
 #print(test_str1_prep + "\n")
 #print(test_str2_prep + "\n")
+#print(test_str3_prep + "\n")
 
 
 
