@@ -47,8 +47,8 @@ read_file17 = "D:/Capstone-Texts/Capstone-Texts-Prepped/stoker-the-man.txt"
 # output: the string containing all of the text in the file
 def get_text(file_name):
     file = open(file_name, 'r')
-    str = file.read()
-    return str
+    text = file.read()
+    return textsssssssss
 
 # writes string to file by appending the string to the file
 # input: str, the string to be written
